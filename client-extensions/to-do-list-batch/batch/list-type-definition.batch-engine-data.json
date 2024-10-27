@@ -1,0 +1,73 @@
+{
+  "configuration": {
+    "className": "com.liferay.headless.admin.list.type.dto.v1_0.ListTypeDefinition",
+    "parameters": {
+      "containsHeaders": "true",
+      "createStrategy": "UPSERT",
+      "importStrategy": "ON_ERROR_FAIL",
+      "updateStrategy": "UPDATE"
+    },
+    "taskItemDelegateName": "DEFAULT"
+  },
+  "facets": [],
+  "items": [
+    {
+      "system": false,
+      "name_i18n": { "en-US": "Task Status" },
+      "name": "Task Status",
+      "listTypeEntries": [
+        {
+          "name_i18n": { "en-US": "Pending" },
+          "name": "Pending",
+          "type": "",
+          "key": "pending",
+          "externalReferenceCode": "04f4e1b6-837b-dc0e-257a-e188854b41a5"
+        },
+        {
+          "name_i18n": { "en-US": "In Progress" },
+          "name": "In Progress",
+          "type": "",
+          "key": "inProgress",
+          "externalReferenceCode": "32b4ade0-534a-0ef8-d4c7-365a81b1dbc4"
+        },
+        {
+          "name_i18n": { "en-US": "Completed" },
+          "name": "Completed",
+          "type": "",
+          "key": "completed",
+          "externalReferenceCode": "ab946184-5bdc-8b93-9b76-55ec92053ad7"
+        }
+      ],
+      "externalReferenceCode": "ef5210ea-8abd-c305-5a4f-3aa56da85608"
+    },
+    {
+      "system": false,
+      "name_i18n": { "en-US": "Task Priority" },
+      "name": "Task Priority",
+      "listTypeEntries": [
+        {
+          "name_i18n": { "en-US": "High" },
+          "name": "High",
+          "type": "",
+          "key": "high",
+          "externalReferenceCode": "032e50df-3c91-2733-fbea-0c8fb2ac9f51"
+        },
+        {
+          "name_i18n": { "en-US": "Medium" },
+          "name": "Medium",
+          "type": "",
+          "key": "medium",
+          "externalReferenceCode": "c70b99b3-41cb-82d4-8522-efbd7694e8cd"
+        },
+        {
+          "name_i18n": { "en-US": "Low" },
+          "name": "Low",
+          "type": "",
+          "key": "low",
+          "externalReferenceCode": "f8156fc3-c524-95e2-c89d-2520aee9758e"
+        }
+      ],
+      "externalReferenceCode": "b6760bfd-4b16-06e6-fed5-c166e690736c"
+    }
+  ]
+}
