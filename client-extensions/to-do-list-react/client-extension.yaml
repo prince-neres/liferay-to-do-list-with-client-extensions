@@ -2,13 +2,13 @@ assemble:
   - from: build/static
     into: static
 
-to-do-list-custom-element:
+to-do-list-react:
   cssURLs:
         - css/main.*.css
-  friendlyURLMapping: to-do-list-custom-element
-  htmlElementName: to-do-list-custom-element
+  friendlyURLMapping: to-do-list-react
+  htmlElementName: to-do-list-react
   instanceable: false
-  name: To-Do list Custom Element
+  name: To-Do list React
   portletCategoryName: category.client-extensions
   type: customElement
   urls:
