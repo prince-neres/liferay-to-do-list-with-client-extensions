@@ -13,35 +13,6 @@
   "items": [
     {
       "system": false,
-      "name_i18n": { "en-US": "Task Status" },
-      "name": "Task Status",
-      "listTypeEntries": [
-        {
-          "name_i18n": { "en-US": "Pending" },
-          "name": "Pending",
-          "type": "",
-          "key": "pending",
-          "externalReferenceCode": "04f4e1b6-837b-dc0e-257a-e188854b41a5"
-        },
-        {
-          "name_i18n": { "en-US": "In Progress" },
-          "name": "In Progress",
-          "type": "",
-          "key": "inProgress",
-          "externalReferenceCode": "32b4ade0-534a-0ef8-d4c7-365a81b1dbc4"
-        },
-        {
-          "name_i18n": { "en-US": "Completed" },
-          "name": "Completed",
-          "type": "",
-          "key": "completed",
-          "externalReferenceCode": "ab946184-5bdc-8b93-9b76-55ec92053ad7"
-        }
-      ],
-      "externalReferenceCode": "ef5210ea-8abd-c305-5a4f-3aa56da85608"
-    },
-    {
-      "system": false,
       "name_i18n": { "en-US": "Task Priority" },
       "name": "Task Priority",
       "listTypeEntries": [
