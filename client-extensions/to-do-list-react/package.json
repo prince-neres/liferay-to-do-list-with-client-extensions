@@ -12,6 +12,7 @@
 		]
 	},
 	"dependencies": {
+		"@heroicons/react": "^2.1.5",
 		"axios": "^1.7.7",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
@@ -28,5 +29,8 @@
 		"start": "react-scripts start",
 		"test": "react-scripts test --passWithNoTests --watchAll=false"
 	},
-	"version": "0.0.0"
+	"version": "0.0.0",
+	"devDependencies": {
+		"tailwindcss": "^3.4.14"
+	}
 }
