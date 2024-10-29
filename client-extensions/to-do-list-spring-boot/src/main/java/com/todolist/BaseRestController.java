@@ -2,7 +2,7 @@ package com.todolist;
 
 import java.util.Map;
 
-import org.apache.commons.logging.Log;\
+import org.apache.commons.logging.Log;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.oauth2.jwt.Jwt;
