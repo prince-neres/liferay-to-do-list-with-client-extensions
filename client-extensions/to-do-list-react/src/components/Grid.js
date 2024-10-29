@@ -69,8 +69,6 @@ const Grid = ({ tasks, setTasks }) => {
     });
   };
 
-  console.log(tasks);
-
   return (
     <div className="max-w-4xl w-full p-5 bg-white rounded-lg m-auto mt-5 overflow-x-auto">
       <table className="w-full table-fixed border-collapse">
