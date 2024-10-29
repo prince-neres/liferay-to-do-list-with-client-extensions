@@ -87,7 +87,7 @@ const Form = ({ tasks, setTasks }) => {
       <div className="flex mt-4">
         <button
           type="submit"
-          className="bg-green-600 text-white rounded-lg h-10 px-4 hover:bg-green-700 font-bold flex"
+          className="bg-green-600 text-white rounded-lg h-10 px-4 hover:bg-green-700 font-bold"
         >
           Add
         </button>
