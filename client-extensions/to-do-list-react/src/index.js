@@ -1,20 +1,13 @@
 import React from 'react';
 import {createRoot} from 'react-dom/client';
-import Start from './Start';
+import App from './App';
+import "./styles/index.css"
 
-const App = ({route}) => {
-
-  return (
-	<div>
-	  <Start />
-	</div>
-  );
-};
 
 class WebComponent extends HTMLElement {
   connectedCallback() {
 	createRoot(this).render(
-	  <App route={this.getAttribute('route')} />,
+	  <App />,
 	  this
 	);
   }

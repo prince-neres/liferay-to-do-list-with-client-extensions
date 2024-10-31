@@ -1,145 +1,99 @@
-import axios from "axios";
-import React, { useEffect, useRef } from "react";
+import React, { useState } from "react";
+import { addTask } from "../commons/api";
 import { toast } from "react-toastify";
-import styled from "styled-components";
-import { baseURL } from "../Start";
 
-const FormContainer = styled.form`
-	align-items: flex-end;
-	background-color: #fff;
-	border-radius: 5px;
-	box-shadow: 0px 0px 5px #ccc;
-	display: flex;
-	flex-wrap: wrap;
-	gap: 60px;
-	max-width: 900px;
-	padding: 20px;
-	width: 100%;
-	justify-content: space-between;
-`;
+const Form = ({ tasks, setTasks }) => {
+  const [formData, setFormData] = useState({
+    taskName: "",
+    taskDescription: "",
+    taskPriority: "low",
+  });
 
-const InputArea = styled.div`
-	display: flex;
-	flex-direction: column;
-	width: 200px;
-`;
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
 
-const Input = styled.input`
-	border-radius: 5px;
-	border: 1px solid #bbb;
-	height: 40px;
-	padding: 0 10px;
-`;
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-const Select = styled.select`
-	background-color: white;
-	border-radius: 5px;
-	border: 1px solid #bbb;
-	height: 40px;
-	padding: 0 10px;
-`;
+    if (
+      !formData.taskName ||
+      !formData.taskDescription ||
+      !formData.taskPriority
+    ) {
+      return toast.warn("Fill up all fields");
+    }
 
-const Label = styled.label``;
+    const createdTask = await addTask(formData);
 
-const Button = styled.button`
-	background-color: #2c73d2;
-	border-radius: 5px;
-	border: none;
-	color: white;
-	cursor: pointer;
-	height: 42px;
-	padding: 10px;
-`;
+    if (createdTask) {
+      toast.success("Task created");
+      setTasks([...tasks, createdTask]);
+      clearFields();
+    }
+  };
 
-const Form = ({ getTasks, onEdit, setOnEdit }) => {
-	const ref = useRef();
+  const clearFields = () => {
+    setFormData({
+      taskName: "",
+      taskDescription: "",
+      taskPriority: "low",
+    });
+  };
 
-	useEffect(() => {
-		if (onEdit) {
-			const task = ref.current;
+  return (
+    <form
+      onSubmit={handleSubmit}
+      className="flex flex-wrap items-start justify-between max-w-4xl w-full pt-5 px-5 bg-white rounded-lg gap-6"
+    >
+      <div className="flex flex-col w-48">
+        <label className="mb-1">Name</label>
+        <input
+          name="taskName"
+          value={formData.taskName}
+          onChange={handleInputChange}
+          className="border border-gray-300 rounded-lg h-10 px-2"
+        />
+      </div>
 
-			task.task.value = onEdit.task;
-			task.id.value = onEdit.id;
-		}
-	}, [onEdit]);
+      <div className="flex flex-col w-48">
+        <label className="mb-1">Description</label>
+        <textarea
+          name="taskDescription"
+          value={formData.taskDescription}
+          onChange={handleInputChange}
+          className="border border-gray-300 rounded-lg h-10 px-2"
+        />
+      </div>
 
-	const handleSubmit = async (item) => {
-		item.preventDefault();
+      <div className="flex flex-col w-48">
+        <label className="mb-1">Priority</label>
+        <select
+          name="taskPriority"
+          value={formData.taskPriority}
+          onChange={handleInputChange}
+          className="border border-gray-300 rounded-lg h-10 px-2 bg-white"
+        >
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
+      </div>
 
-		const task = ref.current;
-
-		if (!task.taskName.value) {
-			return toast.warn("Fill up all fields");
-		}
-
-		await axios
-			.post(
-				baseURL,
-				{
-					taskName: {
-						key: task.taskName.value,
-					},
-					taskPriority: {
-						key: task.taskPriority.value,
-					},
-					taskStatus: {
-						key: task.taskStatus.value,
-					},
-				},
-				{
-					headers: { Authorization: "Basic " + btoa("test@liferay.com:test") },
-				},
-			)
-			.catch(({ data }) => toast.success("Task created"));
-
-		task.taskName.value = "";
-		task.taskPriority.value = "";
-		task.taskStatus.value = "";
-
-		setOnEdit(null);
-		getTasks();
-	};
-
-	return (
-		<FormContainer ref={ref} onSubmit={handleSubmit}>
-			<InputArea>
-				<Label>Name</Label>
-				<Input name="taskName" />
-			</InputArea>
-
-			<InputArea>
-				<Label>Priority</Label>
-				<Select name="taskPriority">
-					<option key="1" value="low">
-						Low
-					</option>
-					<option key="2" value="medium">
-						Medium
-					</option>
-					<option key="3" value="high">
-						High
-					</option>
-				</Select>
-			</InputArea>
-
-			<InputArea>
-				<Label>Status</Label>
-				<Select name="taskStatus">
-					<option key="1" value="pending">
-						Pending
-					</option>
-					<option key="2" value="inProgress">
-						In Progress
-					</option>
-					<option key="3" value="completed">
-						Completed
-					</option>
-				</Select>
-			</InputArea>
-
-			<Button type="submit">Save</Button>
-		</FormContainer>
-	);
+      <div className="flex mt-4">
+        <button
+          type="submit"
+          className="bg-green-600 text-white rounded-lg h-10 px-4 hover:bg-green-700 font-bold"
+        >
+          Add
+        </button>
+      </div>
+    </form>
+  );
 };
 
 export default Form;
