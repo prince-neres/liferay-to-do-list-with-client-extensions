@@ -9,13 +9,6 @@
 lfr init
 ```
 
-After executing `lfr init`  the required Gradle files will be downloaded. To ensure that your system can locate the Gradle executable, add the following line to your `.bashrc` file to set the path for Gradle:
-
-```bash
-export PATH="$HOME/.gradle/wrapper/dists/gradle-8.5-bin/${UNIQUE_ID}/gradle-8.5/bin:$PATH"
-```
-
-Change `${UNIQUE ID}` to your corresponding ID
 
 After adding the above line, apply the changes to your current session by running:
 
@@ -54,5 +47,5 @@ Finally, to run your Spring Boot application, navigate to the `to-do-list-spring
 
 ```bash
 cd to-do-list-spring-boot
-gradle bootRun
+../../gradlew bootRun
 ```
