@@ -135,7 +135,7 @@
           "readOnlyConditionExpression": ""
         },
         {
-          "listTypeDefinitionExternalReferenceCode": "b6760bfd-4b16-06e6-fed5-c166e690736c",
+          "listTypeDefinitionExternalReferenceCode": "TASK_PRIORITY",
           "indexed": true,
           "localized": false,
           "objectFieldSettings": [],

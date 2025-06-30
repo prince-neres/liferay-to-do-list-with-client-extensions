@@ -1,7 +1,7 @@
-import axios from "axios";
 import { toast } from "react-toastify";
 
-export const baseURL = "http://localhost:8080/o/c/tasks/";
+export const domain = "http://localhost:8080";
+export const baseURL = domain + "/o/c/tasks/";
 
 const getHeaders = () => {
     return {
@@ -10,6 +10,17 @@ const getHeaders = () => {
         "Content-Type": "application/json",
         "x-csrf-token": Liferay.authToken,
     };
+};
+
+export const getPriorityList = async () => {
+    try {
+        const res = await Liferay.Util.fetch(domain + "/o/headless-admin-list-type/v1.0/list-type-definitions/by-external-reference-code/TASK_PRIORITY");
+        const data = await res.json();
+        return data.listTypeEntries;
+    } catch (error) {
+        toast.error("Error loading task priorities");
+        return [];
+    }
 };
 
 export const getTasks = async () => {
