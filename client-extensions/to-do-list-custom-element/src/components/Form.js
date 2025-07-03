@@ -51,7 +51,9 @@ const Form = ({ tasks, priorities, setTasks }) => {
             className="flex flex-wrap items-start justify-between max-w-4xl w-full pt-5 px-5 bg-white rounded-lg gap-6"
         >
             <div className="flex flex-col w-48">
-                <label className="mb-1">Name</label>
+                <label className="mb-1">
+                    {Liferay.Language.get("name")}
+                </label>
                 <input
                     name="taskName"
                     value={formData.taskName}
@@ -61,7 +63,9 @@ const Form = ({ tasks, priorities, setTasks }) => {
             </div>
 
             <div className="flex flex-col w-48">
-                <label className="mb-1">Description</label>
+                <label className="mb-1">
+                    {Liferay.Language.get("description")}
+                </label>
                 <textarea
                     name="taskDescription"
                     value={formData.taskDescription}
@@ -71,7 +75,9 @@ const Form = ({ tasks, priorities, setTasks }) => {
             </div>
 
             <div className="flex flex-col w-48">
-                <label className="mb-1">Priority</label>
+                <label className="mb-1">
+                    {Liferay.Language.get("priority")}
+                </label>
                 <select
                     name="taskPriority"
                     value={formData.taskPriority}
@@ -89,7 +95,7 @@ const Form = ({ tasks, priorities, setTasks }) => {
                     type="submit"
                     className="bg-green-600 text-white rounded-lg h-10 px-4 hover:bg-green-700 font-bold"
                 >
-                    Add
+                    {Liferay.Language.get("add")}
                 </button>
             </div>
         </form>

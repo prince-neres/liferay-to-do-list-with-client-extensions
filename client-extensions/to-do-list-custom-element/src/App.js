@@ -5,7 +5,7 @@ import Grid from "./components/Grid";
 import { getPriorityList, getTasks } from "./commons/api";
 import "react-toastify/dist/ReactToastify.css";
 
-function App() {
+function App({ appTitle = "To-Do List" }) {
     const [tasks, setTasks] = useState([]);
     const [priorities, setPriorities] = useState([
         { key: "low", label: "Low" },
@@ -29,7 +29,7 @@ function App() {
     return (
         <div className="App">
             <div className="w-full max-w-4xl mx-auto flex flex-col items-center gap-5">
-                <h2 className="text-2xl font-bold">My Tasks</h2>
+                <h2 className="text-2xl font-bold">{appTitle}</h2>
                 <Form
                     tasks={tasks}
                     priorities={priorities}

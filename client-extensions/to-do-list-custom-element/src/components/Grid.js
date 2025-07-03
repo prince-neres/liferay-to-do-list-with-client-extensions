@@ -73,13 +73,23 @@ const Grid = ({ tasks, priorities, setTasks }) => {
             <table className="w-full table-fixed border-collapse">
                 <thead>
                     <tr className="border-b">
-                        <th className="text-left pb-1">Name</th>
+                        <th className="text-left pb-1">
+                            {" "}
+                            {Liferay.Language.get("name")}
+                        </th>
                         <th className="text-left pb-1 w-3/6">
-                            Description
+                            {Liferay.Language.get("description")}
                         </th>{" "}
-                        <th className="text-left pb-1">Priority</th>
-                        <th className="pb-1 text-center">Check</th>
-                        <th className="pb-1 text-center">Actions</th>
+                        <th className="text-left pb-1">
+                            {" "}
+                            {Liferay.Language.get("priority")}
+                        </th>
+                        <th className="pb-1 text-center">
+                            {Liferay.Language.get("mark-as-completed")}
+                        </th>
+                        <th className="pb-1 text-center">
+                            {Liferay.Language.get("actions")}
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -142,7 +152,7 @@ const Grid = ({ tasks, priorities, setTasks }) => {
                                             }
                                             className="text-green-500 hover:text-green-700 font-bold"
                                         >
-                                            Save
+                                            {Liferay.Language.get("save")}
                                         </button>
                                         <button
                                             onClick={() =>
@@ -150,7 +160,7 @@ const Grid = ({ tasks, priorities, setTasks }) => {
                                             }
                                             className="text-gray-500 hover:text-gray-700 font-bold ml-2"
                                         >
-                                            Cancel
+                                            {Liferay.Language.get("cancel")}
                                         </button>
                                     </>
                                 ) : (
@@ -161,7 +171,7 @@ const Grid = ({ tasks, priorities, setTasks }) => {
                                             }
                                             className="text-blue-500 hover:text-blue-700 font-bold"
                                         >
-                                            Edit
+                                            {Liferay.Language.get("edit")}
                                         </button>
                                         <button
                                             onClick={() =>
@@ -169,7 +179,7 @@ const Grid = ({ tasks, priorities, setTasks }) => {
                                             }
                                             className="text-red-500 hover:text-red-700 font-bold ml-2"
                                         >
-                                            Delete
+                                            {Liferay.Language.get("delete")}
                                         </button>
                                     </>
                                 )}

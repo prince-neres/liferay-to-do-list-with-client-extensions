@@ -1,11 +1,16 @@
 import React from "react";
-import { createRoot } from "react-dom/client";
+import ReactDOM from "react-dom";
+
 import App from "./App";
 import "./styles/index.css";
 
 class WebComponent extends HTMLElement {
     connectedCallback() {
-        createRoot(this).render(<App />, this);
+        ReactDOM.render(React.createElement(App, this.dataset), this);
+    }
+
+    disconnectedCallback() {
+        // ReactDOM.unmountComponentAtNode(this);
     }
 }
 
