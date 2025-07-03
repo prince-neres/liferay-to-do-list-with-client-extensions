@@ -1,6 +1,6 @@
 # Requirements to Run
 
-- **Java 11.0.25**: Download the Java Development Kit (JDK) from [Azul Java Zulu JDKs.](https://www.azul.com/downloads/?version=java-11-lts&package=jdk#zulu)
+- **Java 21.0.5**: Download the Java Development Kit (JDK) from [Azul Java Zulu JDKs.](https://www.azul.com/downloads/?version=java-21-lts&package=jdk#zulu)
 - **LFR-CLI**: Install the LFR Command Line Interface by following the instructions in the [LFR Documentation.](https://lgdd.github.io/lfr-cli/)
 
 ## 1. Initialize the Liferay Bundle
